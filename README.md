@@ -5,16 +5,27 @@ Name: Mohd Diah A.Karim
 In the exercise, I'm showcase the web application created with Blazor as an UI. The project solution built using a Clean Architecture approach in organizing its code into projects. With the clean architecture, the UI layer works with interfaces defined in the Application Core at compile time, and ideally shouldn't know about the implementation types defined in the Infrastructure layer. At run time, however, these implementation types are required for the app to execute, so they need to be present and wired up to the Application Core interfaces via dependency injection.
 
 Couple of libraries and architectures :-
+
 Clean or Onion Architecture
+
 Command Query Responsibility Segregation (CQRS)
+
 Implement Mediatr Pattern
+
 Add Email Service using SendGrid
+
 Implementing Unit Testing
+
 Moq and Shouldy
+
 Global Error Handling with Custom Middleware and Exceptions
+
 Validation Using Fluent Validation
+
 .NET Core API and Blazor UI Application
+
 Implement JWT(JSON Web Token)  Authentication
+
 
 How to run test
 
