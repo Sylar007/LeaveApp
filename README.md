@@ -1,6 +1,6 @@
 Accessment for Upwork Task - Senior .NET Engineer
 The goal of this exercise is to show some sample classes with comprehensive comments in the code & relevant documentation that explains the code and the functionality.
-The main comprehensive comments is in HR.LeaveManagement.Application folder under Features/LeaveRequest.
+The main comprehensive comments is in HR.LeaveManagement.Application folder under **Features/LeaveRequest**.
 
 
 Name: Mohd Diah A.Karim
