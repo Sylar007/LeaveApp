@@ -31,10 +31,11 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Queries
             if (request.IsLoggedInUser)
             {
                 var userId = _userService.UserId;
-                //Get all leave request for the user
+                // Get all leave request for the user
                 leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails(userId);
-
+                // Get employee info by userId
                 var employee = await _userService.GetEmployee(userId);
+                // convert data objects to DTO objects
                 requests = _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
                 foreach (var req in requests)
                 {
@@ -43,7 +44,9 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Queries
             }
             else
             {
+                // Get all leave request for the user
                 leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails();
+                // convert data objects to DTO objects
                 requests = _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
                 foreach (var req in requests)
                 {
