@@ -27,7 +27,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.DeleteLeave
             // remove from database
             await _leaveTypeRepository.DeleteAsync(leaveTypeToDelete);
 
-            // retun record id
+            // return record id
             return Unit.Value;
         }
     }

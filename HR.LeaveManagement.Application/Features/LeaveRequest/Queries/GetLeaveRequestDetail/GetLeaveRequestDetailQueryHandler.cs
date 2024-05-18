@@ -24,6 +24,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Queries
         }
         public async Task<LeaveRequestDetailsDto> Handle(GetLeaveRequestDetailQuery request, CancellationToken cancellationToken)
         {
+            //Get leave request details by Id
             var leaveRequest = _mapper.Map<LeaveRequestDetailsDto>(await _leaveRequestRepository.GetLeaveRequestWithDetails(request.Id));
 
             if (leaveRequest == null)
@@ -32,6 +33,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Queries
             // Add Employee details as needed
             leaveRequest.Employee = await _userService.GetEmployee(leaveRequest.RequestingEmployeeId);
 
+            //return leave request details
             return leaveRequest;
         }
     }

@@ -34,9 +34,11 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Command
 
         public async Task<Unit> Handle(CreateLeaveRequestCommand request, CancellationToken cancellationToken)
         {
+            //Use Fluent Validation to do validation such as Date range and Id not exist in table
             var validator = new CreateLeaveRequestCommandValidator(_leaveTypeRepository);
             var validationResult = await validator.ValidateAsync(request);
 
+            //Check if the validation are met with the conditions
             if (validationResult.Errors.Any())
                 throw new BadRequestException("Invalid Leave Request", validationResult);
 
@@ -68,7 +70,6 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Command
             leaveRequest.DateRequested = DateTime.Now;
             await _leaveRequestRepository.CreateAsync(leaveRequest);
 
-            // send confirmation email
             try
             {
                 var email = new EmailMessage
@@ -78,7 +79,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Command
                         $"has been submitted successfully.",
                     Subject = "Leave Request Submitted"
                 };
-
+                // send confirmation email based on leave request info
                 await _emailSender.SendEmail(email);
             }
             catch (Exception)

@@ -31,6 +31,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Queries
             if (request.IsLoggedInUser)
             {
                 var userId = _userService.UserId;
+                //Get all leave request for the user
                 leaveRequests = await _leaveRequestRepository.GetLeaveRequestsWithDetails(userId);
 
                 var employee = await _userService.GetEmployee(userId);

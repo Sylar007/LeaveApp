@@ -11,6 +11,7 @@ namespace HR.LeaveManagement.Application.MappingProfiles
     {
         public LeaveRequestProfile()
         {
+            // convert data objects to DTO objects
             CreateMap<LeaveRequestListDto, LeaveRequest>().ReverseMap();
             CreateMap<LeaveRequestDetailsDto, LeaveRequest>().ReverseMap();
             CreateMap<LeaveRequest, LeaveRequestDetailsDto>();

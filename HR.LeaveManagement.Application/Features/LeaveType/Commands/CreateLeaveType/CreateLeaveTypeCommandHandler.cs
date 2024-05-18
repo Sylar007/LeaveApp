@@ -32,7 +32,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeave
             // add to database
             await _leaveTypeRepository.CreateAsync(leaveTypeToCreate);
 
-            // retun record id
+            // return record id
             return leaveTypeToCreate.Id;
         }
     }

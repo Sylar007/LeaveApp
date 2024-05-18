@@ -10,6 +10,7 @@ namespace HR.LeaveManagement.Application.MappingProfiles
     {
         public LeaveAllocationProfile()
         {
+            // convert data objects to DTO objects
             CreateMap<LeaveAllocationDto, LeaveAllocation>().ReverseMap();
             CreateMap<LeaveAllocation, LeaveAllocationDetailsDto>();
             CreateMap<CreateLeaveAllocationCommand, LeaveAllocation>();

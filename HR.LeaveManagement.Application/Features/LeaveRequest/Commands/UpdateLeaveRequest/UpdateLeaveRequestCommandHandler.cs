@@ -28,25 +28,29 @@ public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveReque
 
     public async Task<Unit> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
     {
+        //Get leave request by Id
         var leaveRequest = await _leaveRequestRepository.GetByIdAsync(request.Id);
 
+        //If leave request not exist then throw exception
         if (leaveRequest is null)
             throw new NotFoundException(nameof(LeaveRequest), request.Id);
 
-
+        //Use Fluent Validation to do validation before proceed with next process
         var validator = new UpdateLeaveRequestCommandValidator(_leaveTypeRepository, _leaveRequestRepository);
         var validationResult = await validator.ValidateAsync(request);
 
+        //Check if the validation are met with the conditions
         if (validationResult.Errors.Any())
             throw new BadRequestException("Invalid Leave Request", validationResult);
 
+        //map the request object with existing request object from database
         _mapper.Map(request, leaveRequest);
 
+        //Update the leave request
         await _leaveRequestRepository.UpdateAsync(leaveRequest);
 
         try
         {
-            // send confirmation email
             var email = new EmailMessage
             {
                 To = string.Empty, /* Get email from employee record */
@@ -54,7 +58,7 @@ public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveReque
                         $"has been updated successfully.",
                 Subject = "Leave Request Updated"
             };
-
+            // send confirmation email based on leave request info
             await _emailSender.SendEmail(email);
         }
         catch (Exception ex)
