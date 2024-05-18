@@ -28,6 +28,15 @@ Validation Using Fluent Validation
 
 Implement JWT(JSON Web Token)  Authentication
 
+**About this application**
+In a modern corporate environment, the process of managing leave requests is a critical aspect of human resources operations. When an employee decides to take a leave of absence, they initiate the process by submitting a leave request through the company's digital leave management system. This request includes essential details such as the type of leave, start and end dates, and the reason for the leave. Upon submission, the system promptly records the request, ensuring that all data is accurately captured and stored within the employee's personnel file.
+
+The system then triggers an automated workflow, sending a notification to the employee's manager. This notification is designed to alert the manager of the pending leave request, prompting them to review the details. The manager, equipped with insights into team schedules and project deadlines, then deliberates on the request. They have the authority to approve or reject the leave based on various factors, including the employee's leave balance, the impact on team productivity, and the validity of the leave reason.
+
+Once the manager makes a decision, they execute the approval or rejection through the system. This action automatically updates the employee's leave balance, deducting the approved days from their total entitlement or leaving it unchanged in the case of a rejection. The final step in this streamlined process is the system's notification to the employee, informing them of the manager's decision. This notification is crucial as it provides clarity and allows the employee to plan accordingly. Whether the leave is approved or not, the employee receives timely communication, ensuring transparency and maintaining trust in the system's efficacy.
+
+This seamless integration of technology in leave management not only simplifies administrative tasks but also enhances the employee experience by providing a clear, efficient, and user-friendly process for handling leave requests. It exemplifies how digital transformation in the workplace can lead to improved operational efficiency and employee satisfaction.
+
 Here's a high-level overview of the diagrams for a leave management system:
 
 **Use Case Diagram:**
