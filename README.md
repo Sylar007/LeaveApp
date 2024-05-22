@@ -1,8 +1,3 @@
-Accessment for Upwork Task - Senior .NET Engineer
-The goal of this exercise is to show some sample classes with comprehensive comments in the code & relevant documentation that explains the code and the functionality.
-The main comprehensive comments is in HR.LeaveManagement.Application folder under **Features/LeaveRequest**.
-
-
 Name: Mohd Diah A.Karim
 In the exercise, I'm showcase the web application created with Blazor as an UI. The project solution built using a Clean Architecture approach in organizing its code into projects. With the clean architecture, the UI layer works with interfaces defined in the Application Core at compile time, and ideally shouldn't know about the implementation types defined in the Infrastructure layer. At run time, however, these implementation types are required for the app to execute, so they need to be present and wired up to the Application Core interfaces via dependency injection.
 
